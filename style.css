@@ -40,6 +40,21 @@ header {
   border-bottom: 1px solid var(--rule);
 }
 
+.proposal-pill {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 0.8rem;
+  padding: 0.28rem 0.65rem;
+  border: 1px solid #d9d9d4;
+  border-radius: 999px;
+  background: #f6f6f4;
+  color: #55554f;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 .hero-visual {
   position: relative;
   margin: 0 0 0.8rem;
