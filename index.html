@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beneath the Policy: Hidden Inductive Biases in Robot Learning — CoRL 2026 Workshop</title>
+  <meta name="description" content="A CoRL 2026 half-day workshop on the substrate beneath robot learning policies: hardware, embodiments, controllers, action spaces, demonstration interfaces, simulators, and the hidden choices that shape what policies can learn.">
+  <meta property="og:title" content="Beneath the Policy: Hidden Inductive Biases in Robot Learning">
+  <meta property="og:description" content="A CoRL 2026 half-day workshop on the hidden design choices that shape robot learning.">
+  <meta property="og:image" content="https://beneath-the-policy.github.io/images/beneath-policy-hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://beneath-the-policy.github.io/images/beneath-policy-hero.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="nav-inner">
+    <a href="#overview">Overview</a>
+    <a href="#challenges">Open Challenges</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#cfp">Call for Papers</a>
+    <a href="#artifact">Artifact</a>
+    <a href="#organizers">Organizers</a>
+  </div>
+</nav>
+
+<main>
+
+  <header>
+    <figure class="hero-visual">
+      <img src="images/beneath-policy-hero.png" alt="A robot arm above layered hardware, controller, simulation, and data abstractions">
+    </figure>
+    <h1>Beneath the Policy</h1>
+    <p class="subtitle">Hidden Inductive Biases in Robot Learning</p>
+    <p class="tagline">Toward a full-stack science of learnable robot systems</p>
+    <p class="meta">
+      Half-day workshop at <a href="https://www.corl.org/">CoRL 2026</a><br>
+      JW Marriott Austin · November 9, 2026
+    </p>
+  </header>
+
+  <section id="overview">
+    <h2>Overview</h2>
+    <p>
+      Modern robot learning pipelines are stacks of design choices: embodiments and kinematics, motor and actuator dynamics, action space parameterizations, reset and demonstration distributions, observation modalities, reward shaping, simulation contact and integration parameters, control frequencies, controller gains, and other low-level controller settings. Each is typically picked by convention, copied from prior code, or tuned silently. Yet recent results suggest that these &ldquo;hidden&rdquo; choices act as powerful inductive biases that shape what policies can learn, how well they transfer, and which algorithms appear to win.
+    </p>
+    <p>
+      These choices show up at many levels of the stack. A motor-level setting, transmission choice, controller-gain default, or embodiment geometry can make one behavior easy and another unreachable; an action-space parameterization can silently determine what exploration is possible; a demonstration interface can filter which behaviors ever enter the dataset; a reset distribution can decide what counts as generalization; a simulator contact model or integration scheme can make some contact-rich strategies discoverable and others invisible. None of these are merely implementation details. They are <em>learning-interface</em> parameters: part of the experimental substrate that determines what policies can learn.
+    </p>
+    <p>
+      If true generally, this changes how the field should do science. Benchmarks comparing two algorithms while holding a hidden bias fixed are not really comparing algorithms. Architecture innovations may be re-discovering the effect of an unreported interface choice. We do not yet have a vocabulary, a methodology, or a community norm for studying the substrate beneath the policy.
+    </p>
+  </section>
+
+  <section id="challenges">
+    <h2>Four Open Challenges</h2>
+    <ol>
+      <li>
+        <strong>Identification.</strong> What are the load-bearing hidden design choices in current robot learning pipelines, and how do we even measure them? Many are undocumented or buried in vendor defaults.
+      </li>
+      <li>
+        <strong>Interaction.</strong> How do these choices compose? Are motor dynamics, embodiment geometry, controller gains, action spaces, control rates, and demonstration interfaces independent knobs, or do they interact in ways that make any single-axis study misleading?
+      </li>
+      <li>
+        <strong>Methodology.</strong> What does a rigorous experiment look like in this space? Factorial designs, scaling-style ablations, and &ldquo;model organism&rdquo; task selection are all candidates, but the field has no shared template.
+      </li>
+      <li>
+        <strong>Reporting.</strong> What should papers be required to report so that results are reproducible and comparable? Can we converge on a community checklist of design choices, analogous to model cards or datasheets?
+      </li>
+    </ol>
+    <p>
+      We deliberately scope away from generic themes like &ldquo;robot manipulation&rdquo; or &ldquo;foundation models.&rdquo; The workshop is about the substrate that those headline results sit on.
+    </p>
+  </section>
+
+  <section id="why-now">
+    <h2>Why Now</h2>
+    <ul>
+      <li>
+        <strong>Scale exposes the substrate.</strong> Large datasets like DROID and Open X-Embodiment mix data from heterogeneous hardware, embodiments, controllers, action spaces, and teleop interfaces, often without documentation. Practitioners are discovering that &ldquo;data quantity&rdquo; hides large variance in implicit interfaces.
+      </li>
+      <li>
+        <strong>Reproducibility crises.</strong> Recent results in manipulation and locomotion have failed to replicate across labs, with post-hoc diagnosis pointing to hardware or interface settings, reset distributions, or simulator versions rather than algorithmic differences.
+      </li>
+      <li>
+        <strong>The methodology gap.</strong> Empirical robot learning lacks the experimental scaffolding of adjacent fields&mdash;factorial design from biology, scaling laws from LLMs, model-organism choice from neuroscience. The community is ready for a serious conversation on how to do science here.
+      </li>
+    </ul>
+  </section>
+
+  <section id="schedule">
+    <h2>Schedule</h2>
+    <p>
+      The half-day is organized around four invited talks, a poster session, and a moderated panel. Speakers are asked to attend the full session so they can take part in the panel and engage with contributed work. Exact placement will depend on whether CoRL assigns the workshop to the morning or afternoon block.
+    </p>
+    <div class="schedule-switch" aria-label="Schedule version">
+      <button type="button" class="schedule-tab active" data-schedule-target="morning" aria-pressed="true" aria-controls="schedule-morning">Morning</button>
+      <button type="button" class="schedule-tab" data-schedule-target="afternoon" aria-pressed="false" aria-controls="schedule-afternoon">Afternoon</button>
+    </div>
+
+    <div id="schedule-morning" class="schedule-panel active" data-schedule-panel="morning">
+      <table class="schedule">
+        <tr>
+          <td class="time">8:30&ndash;8:40</td>
+          <td><strong>Opening framing.</strong> Organizers introduce the four open challenges and the reporting-artifact goal.</td>
+        </tr>
+        <tr class="speaker-row">
+          <td class="time">8:40&ndash;9:10</td>
+          <td><strong>Speaker 1.</strong> Invited talk.</td>
+        </tr>
+        <tr class="speaker-row">
+          <td class="time">9:10&ndash;9:40</td>
+          <td><strong>Speaker 2.</strong> Invited talk.</td>
+        </tr>
+        <tr class="speaker-row">
+          <td class="time">9:40&ndash;10:10</td>
+          <td><strong>Speaker 3.</strong> Invited talk.</td>
+        </tr>
+        <tr>
+          <td class="time">10:10&ndash;10:30</td>
+          <td><strong>Lightning previews.</strong> Short contributed-paper previews and poster setup before the conference coffee break.</td>
+        </tr>
+        <tr>
+          <td class="time">10:30&ndash;11:00</td>
+          <td><strong>Coffee break and posters.</strong> Accepted papers are presented as posters during the conference coffee break.</td>
+        </tr>
+        <tr class="speaker-row">
+          <td class="time">11:00&ndash;11:30</td>
+          <td><strong>Speaker 4.</strong> Invited talk.</td>
+        </tr>
+        <tr>
+          <td class="time">11:30&ndash;12:10</td>
+          <td><strong>Panel discussion.</strong> Speakers and contributed-paper authors discuss what papers should report and how the field should study the substrate, with time for audience discussion.</td>
+        </tr>
+        <tr>
+          <td class="time">12:10&ndash;12:30</td>
+          <td><strong>Closing synthesis.</strong> Themes from talks, posters, and panel; checklist takeaways and pointers to the post-workshop artifact.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="schedule-afternoon" class="schedule-panel" data-schedule-panel="afternoon" hidden>
+      <table class="schedule">
+        <tr>
+          <td class="time">2:00&ndash;2:10</td>
+          <td><strong>Opening framing.</strong> Organizers introduce the four open challenges and the reporting-artifact goal.</td>
+        </tr>
+        <tr class="speaker-row">
+          <td class="time">2:10&ndash;2:40</td>
+          <td><strong>Speaker 1.</strong> Invited talk.</td>
+        </tr>
+        <tr class="speaker-row">
+          <td class="time">2:40&ndash;3:10</td>
+          <td><strong>Speaker 2.</strong> Invited talk.</td>
+        </tr>
+        <tr>
+          <td class="time">3:10&ndash;3:30</td>
+          <td><strong>Lightning previews.</strong> Short contributed-paper previews and poster setup before the conference coffee break.</td>
+        </tr>
+        <tr>
+          <td class="time">3:30&ndash;4:00</td>
+          <td><strong>Coffee break and posters.</strong> Accepted papers are presented as posters during the conference coffee break.</td>
+        </tr>
+        <tr class="speaker-row">
+          <td class="time">4:00&ndash;4:30</td>
+          <td><strong>Speaker 3.</strong> Invited talk.</td>
+        </tr>
+        <tr class="speaker-row">
+          <td class="time">4:30&ndash;5:00</td>
+          <td><strong>Speaker 4.</strong> Invited talk.</td>
+        </tr>
+        <tr>
+          <td class="time">5:00&ndash;5:40</td>
+          <td><strong>Panel discussion.</strong> Speakers and contributed-paper authors discuss what papers should report and how the field should study the substrate, with time for audience discussion.</td>
+        </tr>
+        <tr>
+          <td class="time">5:40&ndash;6:00</td>
+          <td><strong>Closing synthesis.</strong> Themes from talks, posters, and panel; checklist takeaways and pointers to the post-workshop artifact.</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="cfp">
+    <h2>Call for Papers</h2>
+    <p>
+      We solicit 4-page (excluding references) contributed papers on any axis of hidden inductive bias in robot learning. In-scope contributions include:
+    </p>
+    <ul>
+      <li>Empirical studies isolating a single design choice (motor dynamics, transmission or compliance, embodiment and kinematics, controller gains or other controller settings, action space, reward, reset distribution, demo interface, sim contact model) and characterizing its effect on learning.</li>
+      <li>Factorial or scaling-style studies that vary multiple choices.</li>
+      <li>Negative or surprising results where a design choice changed a published conclusion.</li>
+      <li>Methodology papers proposing new experimental designs, metrics, or reporting conventions.</li>
+      <li>Tools, benchmarks, or datasets that expose or normalize hidden choices.</li>
+    </ul>
+    <p>
+      <strong>Review.</strong> Double-blind, 2&ndash;3 reviewers per paper, via OpenReview. Acceptance criteria emphasize what the paper teaches us about the substrate, not state-of-the-art numbers. Best paper and best negative-result awards.
+    </p>
+    <p>
+      <strong>Format.</strong> All accepted papers receive a poster slot. A small subset of authors will be invited to join the panel discussion as anchor voices alongside the invited speakers.
+    </p>
+    <p>
+      <strong>Exclusions.</strong> Per CoRL 2026 policy, papers already accepted to the main CoRL 2026 conference are not eligible. Concurrent submissions to other venues are permitted if disclosed.
+    </p>
+    <p class="note">Submission deadline and OpenReview link will be posted here closer to the conference.</p>
+  </section>
+
+  <section id="artifact">
+    <h2>Workshop Artifact</h2>
+    <p>
+      We commit to producing a <strong>Design Choice Reporting Checklist v0.1</strong> as the workshop artifact, synthesized by the organizers from the invited talks, contributed papers, and panel discussion. The checklist will be structured per design axis (hardware and embodiment, motors and actuation, kinematics, controller gains and control rates, action spaces, observations, demos, sim, reward, reset) with the goal of being adoptable by reviewers and authors at CoRL 2027. We will circulate a draft to invited speakers and contributed-paper authors for comment before public release.
+    </p>
+    <p>
+      We will additionally release a short whitepaper summarizing open challenges, candidate methodologies, and an agenda for community follow-up.
+    </p>
+  </section>
+
+  <section id="organizers">
+    <h2>Organizers</h2>
+    <div class="organizer-grid">
+      <a href="https://younghyopark.me/" class="organizer">
+        <img src="images/organizers/younghyo.jpg" alt="Younghyo Park">
+        <p class="org-name">Younghyo Park</p>
+        <p class="org-affil">MIT CSAIL</p>
+        <p class="org-tag">Lead contact</p>
+      </a>
+      <!-- <a href="https://tonibronars.github.io/" class="organizer">
+        <img src="images/organizers/toni.jpg" alt="Antonia Bronars">
+        <p class="org-name">Antonia Bronars</p>
+        <p class="org-affil">MIT CSAIL</p>
+      </a>
+      <a href="https://eliealjalbout.github.io/" class="organizer">
+        <img src="images/organizers/elie.jpg" alt="Elie Aljalbout">
+        <p class="org-name">Elie Aljalbout</p>
+        <p class="org-affil">NVIDIA</p>
+      </a> -->
+      <a href="https://people.csail.mit.edu/pulkitag/" class="organizer">
+        <img src="images/organizers/pulkit.jpg" alt="Pulkit Agrawal">
+        <p class="org-name">Pulkit Agrawal</p>
+        <p class="org-affil">MIT CSAIL</p>
+      </a>
+    </div>
+    <p class="contact">
+      Contact: <a href="mailto:younghyo@mit.edu">younghyo@mit.edu</a>
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Beneath the Policy &middot; CoRL 2026 Workshop</p>
+</footer>
+
+<script>
+  (function () {
+    const navLinks = Array.from(document.querySelectorAll('.topnav a'));
+    const sections = navLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.target.offsetTop - b.target.offsetTop);
+      if (visible.length) setActive(visible[0].target.id);
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+    sections.forEach(s => observer.observe(s));
+  })();
+
+  (function () {
+    const tabs = Array.from(document.querySelectorAll('.schedule-tab'));
+    const panels = Array.from(document.querySelectorAll('[data-schedule-panel]'));
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.scheduleTarget;
+
+        tabs.forEach(item => {
+          const active = item === tab;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+
+        panels.forEach(panel => {
+          const active = panel.dataset.schedulePanel === target;
+          panel.classList.toggle('active', active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
