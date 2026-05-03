@@ -14,23 +14,23 @@
 </head>
 <body>
 
-<nav class="topnav">
-  <div class="nav-inner">
-    <a href="#overview">Overview</a>
-    <a href="#challenges">Open Challenges</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#cfp">Call for Papers</a>
-    <a href="#artifact">Artifact</a>
-    <a href="#organizers">Organizers</a>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-brand" href="#top" aria-label="Back to top — Beneath the Policy, CoRL 2026 Workshop">
+      <span class="topbar-title">Beneath the Policy</span>
+      <span class="topbar-subtitle">Hidden Inductive Biases in Robot Learning <span class="topbar-sep">·</span> CoRL 2026 Workshop</span>
+    </a>
+    <a class="topbar-logo" href="https://www.corl.org/" aria-label="CoRL 2026">
+      <img src="images/organizers/corl-logo.png" alt="CoRL 2026 logo">
+    </a>
   </div>
-</nav>
+</div>
 
 <main>
 
-  <header>
+  <header id="top">
     <figure class="hero-visual">
       <img src="images/beneath-policy-hero.png" alt="A robot arm above layered hardware, controller, simulation, and data abstractions">
-      <p class="proposal-pill">CoRL 2026 Workshop (Proposal)</p>
     </figure>
     <h1>Beneath the Policy</h1>
     <p class="subtitle">Hidden Inductive Biases in Robot Learning</p>
@@ -44,7 +44,7 @@
   <section id="overview">
     <h2>Overview</h2>
     <p>
-      Modern robot learning pipelines are stacks of design choices: embodiments and kinematics, motor and actuator dynamics, action space parameterizations, reset and demonstration distributions, observation modalities, reward shaping, simulation contact and integration parameters, control frequencies, controller gains, and other low-level controller settings. Each is typically picked by convention, copied from prior code, or tuned silently. Yet recent results suggest that these &ldquo;hidden&rdquo; choices act as powerful inductive biases that shape what policies can learn, how well they transfer, and which algorithms appear to win.
+      Modern robot learning pipelines are stacks of design choices: embodiments and kinematics, motor and actuator dynamics, action space parameterizations, reset and demonstration distributions, observation modalities, reward shaping, simulator contact models and integration schemes, control frequencies, controller gains, and other low-level controller settings. Each is typically picked by convention, copied from prior code, or tuned silently. Yet recent results suggest that these &ldquo;hidden&rdquo; choices act as powerful inductive biases that shape what policies can learn, how well they transfer, and which algorithms appear to win.
     </p>
     <p>
       These choices show up at many levels of the stack. A motor-level setting, transmission choice, controller-gain default, or embodiment geometry can make one behavior easy and another unreachable; an action-space parameterization can silently determine what exploration is possible; a demonstration interface can filter which behaviors ever enter the dataset; a reset distribution can decide what counts as generalization; a simulator contact model or integration scheme can make some contact-rich strategies discoverable and others invisible. None of these are merely implementation details. They are <em>learning-interface</em> parameters: part of the experimental substrate that determines what policies can learn.
@@ -189,7 +189,7 @@
       We solicit 4-page (excluding references) contributed papers on any axis of hidden inductive bias in robot learning. In-scope contributions include:
     </p>
     <ul>
-      <li>Empirical studies isolating a single design choice (motor dynamics, transmission or compliance, embodiment and kinematics, controller gains or other controller settings, action space, reward, reset distribution, demo interface, sim contact model) and characterizing its effect on learning.</li>
+      <li>Empirical studies isolating a single design choice (motor dynamics, transmission or compliance, embodiment and kinematics, controller gains or other controller settings, action space, reward, reset distribution, demo interface, sim contact model class, domain randomization distribution, or solver and integrator choice) and characterizing its effect on learning.</li>
       <li>Factorial or scaling-style studies that vary multiple choices.</li>
       <li>Negative or surprising results where a design choice changed a published conclusion.</li>
       <li>Methodology papers proposing new experimental designs, metrics, or reporting conventions.</li>
@@ -249,19 +249,29 @@
 
 </main>
 
+<aside class="toc" aria-label="On this page">
+  <p class="toc-label">On this page</p>
+  <a href="#overview">Overview</a>
+  <a href="#challenges">Open Challenges</a>
+  <a href="#schedule">Schedule</a>
+  <a href="#cfp">Call for Papers</a>
+  <a href="#artifact">Artifact</a>
+  <a href="#organizers">Organizers</a>
+</aside>
+
 <footer>
   <p>Beneath the Policy &middot; CoRL 2026 Workshop</p>
 </footer>
 
 <script>
   (function () {
-    const navLinks = Array.from(document.querySelectorAll('.topnav a'));
-    const sections = navLinks
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const sections = tocLinks
       .map(link => document.querySelector(link.getAttribute('href')))
       .filter(Boolean);
 
     const setActive = (id) => {
-      navLinks.forEach(link => {
+      tocLinks.forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === '#' + id);
       });
     };
