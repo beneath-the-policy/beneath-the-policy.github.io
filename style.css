@@ -348,7 +348,7 @@ table.schedule tr:last-child td {
 
 .speaker-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  grid-template-columns: 1fr;
   gap: 1.1rem;
   margin: 1.4rem 0 0;
 }
