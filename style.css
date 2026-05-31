@@ -354,9 +354,10 @@ table.schedule tr:last-child td {
 }
 
 .speaker {
+  position: relative;
   display: grid;
-  grid-template-columns: 116px 1fr;
-  gap: 1.1rem;
+  grid-template-columns: clamp(132px, 16vw, 156px) 1fr;
+  gap: 1.15rem;
   align-items: start;
   padding: 1rem;
   border: 1px solid var(--rule);
@@ -365,11 +366,12 @@ table.schedule tr:last-child td {
 
 .speaker img {
   display: block;
-  width: 116px;
+  width: 100%;
+  height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center center;
-  border-radius: 50%;
+  border-radius: 6px;
   filter: grayscale(10%);
 }
 
@@ -387,12 +389,27 @@ table.schedule tr:last-child td {
 }
 
 .speaker-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  padding: 0.22rem 0.5rem;
+  margin: 0;
+  border: 1px solid rgba(143, 55, 42, 0.25);
+  border-radius: 999px;
+  background: #fbfbf8;
   color: var(--accent);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.06em;
+  line-height: 1;
+  transform: scale(0.65);
+  transform-origin: top right;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .speaker-affil {
@@ -453,12 +470,16 @@ table.schedule tr:last-child td {
 
 @media (max-width: 600px) {
   .speaker {
-    grid-template-columns: 82px 1fr;
+    grid-template-columns: 92px 1fr;
     gap: 0.9rem;
     padding: 0.85rem;
   }
-  .speaker img {
-    width: 82px;
+  .speaker-details {
+    padding-top: 1.35rem;
+  }
+  .speaker-status {
+    top: 0.85rem;
+    right: 0.85rem;
   }
   .speaker-details h3 {
     font-size: 1.1rem;
