@@ -348,20 +348,14 @@ table.schedule tr:last-child td {
 
 .speaker-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
   margin: 1.4rem 0 0;
 }
 
 .speaker {
-  position: relative;
-  display: grid;
-  grid-template-columns: clamp(132px, 16vw, 156px) 1fr;
-  gap: 1.15rem;
-  align-items: start;
-  padding: 1rem;
-  border: 1px solid var(--rule);
-  background: #fbfbf8;
+  display: block;
+  min-width: 0;
 }
 
 .speaker img {
@@ -371,51 +365,50 @@ table.schedule tr:last-child td {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center center;
-  border-radius: 6px;
+  border-radius: 8px;
   filter: grayscale(10%);
 }
 
-.speaker-details p {
-  margin: 0.45rem 0 0;
-  line-height: 1.5;
-  font-size: 0.94rem;
+.speaker-photo {
+  display: block;
+  padding-bottom: 0;
+  border-bottom: 0;
+  text-decoration: none;
+}
+
+.speaker-photo:hover img {
+  filter: grayscale(0%);
+}
+
+.speaker-details {
+  margin-top: 0.55rem;
 }
 
 .speaker-details h3 {
-  margin: 0.05rem 0 0;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  letter-spacing: -0.005em;
+  margin: 0 0 0.14rem;
+  font-size: 0.98rem;
+  line-height: 1.15;
 }
 
-.speaker-status {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: inline-flex;
-  align-items: center;
-  width: max-content;
-  padding: 0.22rem 0.5rem;
-  margin: 0;
-  border: 1px solid rgba(143, 55, 42, 0.25);
-  border-radius: 999px;
-  background: #fbfbf8;
+.speaker-details h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.speaker-details h3 a:hover {
   color: var(--accent);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  transform: scale(0.65);
-  transform-origin: top right;
-  text-transform: uppercase;
-  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 .speaker-affil {
+  margin: 0;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.78rem;
   font-style: italic;
+  line-height: 1.3;
 }
 
 .organizer-grid {
@@ -469,20 +462,15 @@ table.schedule tr:last-child td {
 }
 
 @media (max-width: 600px) {
+  .speaker-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem 0.9rem;
+  }
   .speaker {
-    grid-template-columns: 92px 1fr;
-    gap: 0.9rem;
-    padding: 0.85rem;
-  }
-  .speaker-details {
-    padding-top: 1.35rem;
-  }
-  .speaker-status {
-    top: 0.85rem;
-    right: 0.85rem;
+    display: block;
   }
   .speaker-details h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .organizer-grid {
     grid-template-columns: repeat(2, 1fr);
