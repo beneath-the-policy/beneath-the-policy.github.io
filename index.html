@@ -43,47 +43,47 @@
   <section id="overview">
     <h2>Overview</h2>
     <p>
-      Modern robot learning pipelines are stacks of design choices: embodiments and kinematics, motor and actuator dynamics, action space parameterizations, reset and demonstration distributions, observation modalities, reward shaping, simulator contact models and integration schemes, control frequencies, controller gains, and other low-level controller settings. Each is typically picked by convention, copied from prior code, or tuned silently. Yet recent results suggest that these &ldquo;hidden&rdquo; choices powerfully shape what policies can learn, how well they transfer, and which algorithms appear to win.
+      Robot learning has recently made striking progress in challenging domains such as dexterous manipulation, legged locomotion, and whole-body control. These advances are often credited to better policies, achieved through improved network architectures, novel learning algorithms, and, perhaps most importantly, increased data scale.
     </p>
     <p>
-      These choices show up at many levels of the stack. A motor-level setting, transmission choice, controller-gain default, or embodiment geometry can make one behavior easy and another unreachable; an action-space parameterization can silently determine what exploration is possible; a demonstration interface can filter which behaviors ever enter the dataset; a reset distribution can decide what counts as generalization; a simulator contact model or integration scheme can make some contact-rich strategies discoverable and others invisible. None of these are merely implementation details. They are <em>learning-interface</em> parameters: part of the experimental substrate that determines what policies can learn.
+      However, robot policies do not exist in a vacuum, and neither does the data used for training. Instead, they sit on top of multiple layers of design choices constituting a complex robot system that spans from data collection to deployment. Our workshop will focus explicitly on these design decisions: everything that sits <em>beneath</em> the policy. The process of training a robot policy and its outcome hinges on the kinematics and dynamics of the body being controlled, the type of actuators and low-level controllers, the action and observation spaces exposed to the policy, the sensing and data collection pipeline, the choice of a simulator, the evaluation protocol, and much more.
     </p>
     <p>
-      If true generally, this changes how the field should do science. Benchmarks comparing two algorithms while holding a hidden bias fixed are not really comparing algorithms. Architecture innovations may be re-discovering the effect of an unreported interface choice. We do not yet have a vocabulary, a methodology, or a community norm for studying the substrate beneath the policy.
+      Although such design choices are essential to create every robot-learning result, they are rarely treated as an object of study in their own right. Instead, such components are often described as mere implementation details or left implicit in hardware, software, and lab-specific defaults. Recent studies reveal that these choices can heavily determine which behaviors are reachable, which behaviors are easy to learn, and which algorithms appear to work best. A method that succeeds with one set of design decisions may fail with another, and an apparent algorithmic improvement may partly reflect the substrate on which the method was trained, evaluated, and deployed.
+    </p>
+    <p>
+      This workshop makes these robotics design decisions a central object of study. It asks which non-policy choices are impactful, which can be measured, which remain hidden in vendor defaults, and how they interact with each other. We will bring together robot-learning researchers, platform builders, control and simulation researchers, dataset and benchmark builders, industry practitioners, and students centered around the goal of making these hidden design choices explicit, measurable, and easier to report.
     </p>
   </section>
 
   <section id="challenges">
-    <h2>Four Open Challenges</h2>
+    <h2>Core Challenges and Research Questions</h2>
     <ol>
       <li>
-        <strong>Identification.</strong> What are the load-bearing hidden design choices in current robot learning pipelines, and how do we even measure them? Many are undocumented or buried in vendor defaults.
+        <strong>Identification.</strong> Which hidden design choices in current robot-learning pipelines are impactful, measurable, or buried in vendor defaults?
       </li>
       <li>
-        <strong>Interaction.</strong> How do these choices compose? Are motor dynamics, embodiment geometry, controller gains, action spaces, control rates, and demonstration interfaces independent knobs, or do they interact in ways that make any single-axis study misleading?
+        <strong>Interaction.</strong> How do motor dynamics, embodiment, controller gains, action spaces, control rates, and demonstration interfaces combine to shape learning?
       </li>
       <li>
-        <strong>Methodology.</strong> What does a rigorous experiment look like in this space? Factorial designs, scaling-style ablations, and &ldquo;model organism&rdquo; task selection are all candidates, but the field has no shared template.
+        <strong>Methodology.</strong> Which experimental templates, such as factorial designs, scaling-style ablations, or model-organism tasks, make this layer tractable to study?
       </li>
       <li>
-        <strong>Reporting.</strong> What should papers be required to report so that results are reproducible and comparable? Can we converge on a community checklist of design choices, analogous to model cards or datasheets?
+        <strong>Reporting.</strong> What should papers report so results are reproducible, interpretable, and easier to compare? Can the community converge on a practical checklist?
       </li>
     </ol>
   </section>
 
   <section id="why-now">
     <h2>Why Now</h2>
-    <ul>
+    <ol>
       <li>
-        <strong>Scale exposes the substrate.</strong> Large datasets like DROID and Open X-Embodiment mix data from heterogeneous hardware, embodiments, controllers, action spaces, and teleop interfaces, often without documentation. Practitioners are discovering that &ldquo;data quantity&rdquo; hides large variance in implicit interfaces.
+        <strong>Scaling the best data.</strong> The community is increasingly focused on scaling robot learning along the data axis. However, we believe that better understanding the substrate beneath the data and policy will substantially enhance the effectiveness of data collection efforts. The key question is not only how much data to collect, but <em>what</em> should be scaled. However, the community lacks shared scientific tools and machinery for studying this layer. Other empirical sciences use factorial designs, controlled ablations, scaling analyses, and carefully chosen model organisms to isolate important variables. Robot learning has no comparable norm for studying the interface among robot, data, controller, simulator, and optimizer.
       </li>
       <li>
-        <strong>Reproducibility crises.</strong> Recent results in manipulation and locomotion have failed to replicate across labs, with post-hoc diagnosis pointing to hardware or interface settings, reset distributions, or simulator versions rather than algorithmic differences.
+        <strong>Scientific rigor and reproducibility.</strong> The community is also increasingly suffering from reproducibility failures, which frequently come down to details that are rarely foregrounded in robotics publications: hardware settings, simulator versions, controller gains, control rates, data collection interfaces, reset distributions, and evaluation protocols. Clear reporting of these design choices would make it easier to interpret results, diagnose failed replications, and distinguish algorithmic improvements from substrate-specific effects. But reporting alone is not enough. Because these choices can change the strength, scope, or even direction of an empirical claim, methodological contributions should also examine how sensitive their conclusions are to key substrate choices. The field needs better language, methods, and reporting norms for studying how robot-learning results depend on the interface beneath the policy. This workshop will be a first step toward building that machinery and culture.
       </li>
-      <li>
-        <strong>Heterogeneous substrates.</strong> As more labs, companies, and open-source efforts enter robot learning, experiments increasingly depend on different embodiments, actuators, controllers, simulators, data pipelines, and demonstration interfaces. That diversity is healthy, but it makes it hard to disambiguate algorithmic progress from substrate effects without shared experimental scaffolding and reporting norms.
-      </li>
-    </ul>
+    </ol>
   </section>
 
   <section id="speakers">
@@ -140,7 +140,7 @@
   <section id="schedule">
     <h2>Schedule</h2>
     <p>
-      The half-day is organized around four invited talks, a poster session, and a moderated panel. Speakers are asked to attend the full session so they can take part in the panel and engage with contributed work. Exact placement will depend on whether CoRL assigns the workshop to the morning or afternoon block.
+      The half-day workshop is built around four confirmed invited talks, contributed lightning previews, a poster session, a moderated panel, and a closing synthesis. The tentative fifth invited participant will be incorporated into the final program if confirmed. Speakers will be asked to attend the full session so they can join the panel and engage with contributed papers. Exact placement will depend on whether CoRL assigns the workshop to the morning or afternoon block.
     </p>
     <div class="schedule-switch" aria-label="Schedule version">
       <button type="button" class="schedule-tab active" data-schedule-target="morning" aria-pressed="true" aria-controls="schedule-morning">Morning</button>
@@ -196,11 +196,11 @@
         </tr>
         <tr class="speaker-row">
           <td class="time">2:10&ndash;2:40</td>
-          <td><strong>Speaker 1.</strong> Invited talk.</td>
+          <td><strong>Invited Talk: Jan Peters.</strong></td>
         </tr>
         <tr class="speaker-row">
           <td class="time">2:40&ndash;3:10</td>
-          <td><strong>Speaker 2.</strong> Invited talk.</td>
+          <td><strong>Invited Talk: Hao-Shu Fang.</strong></td>
         </tr>
         <tr>
           <td class="time">3:10&ndash;3:30</td>
@@ -212,11 +212,11 @@
         </tr>
         <tr class="speaker-row">
           <td class="time">4:00&ndash;4:30</td>
-          <td><strong>Speaker 3.</strong> Invited talk.</td>
+          <td><strong>Invited Talk: Zeynep Temel.</strong></td>
         </tr>
         <tr class="speaker-row">
           <td class="time">4:30&ndash;5:00</td>
-          <td><strong>Speaker 4.</strong> Invited talk.</td>
+          <td><strong>Invited Talk: Alberto Rodriguez.</strong></td>
         </tr>
         <tr>
           <td class="time">5:00&ndash;5:40</td>
@@ -236,31 +236,41 @@
       We solicit 4-page (excluding references) contributed papers on any aspect of the hardware, control, or data infrastructure beneath robot learning. In-scope contributions include:
     </p>
     <ul>
-      <li>Empirical studies isolating a single design choice (motor dynamics, transmission or compliance, embodiment and kinematics, controller gains or other controller settings, action space, reward, reset distribution, demo interface, sim contact model class, domain randomization distribution, or solver and integrator choice) and characterizing its effect on learning.</li>
-      <li>Factorial or scaling-style studies that vary multiple choices.</li>
-      <li>Negative or surprising results where a design choice changed a published conclusion.</li>
-      <li>Methodology papers proposing new experimental designs, metrics, or reporting conventions.</li>
-      <li>Tools, benchmarks, or datasets that expose or normalize hidden choices.</li>
+      <li>Controlled studies of design choices.</li>
+      <li>Factorial or scaling-style ablations.</li>
+      <li>Negative or surprising results.</li>
+      <li>New reporting conventions.</li>
+      <li>Tools, benchmarks, or datasets that expose hidden choices.</li>
     </ul>
     <p>
-      <strong>Review.</strong> Double-blind, 2&ndash;3 reviewers per paper, via OpenReview. Acceptance criteria emphasize what the paper teaches us about the substrate, not state-of-the-art numbers. A best paper award will recognize especially strong submissions.
+      <strong>Review.</strong> Reviews will be double blind through OpenReview, with 2&ndash;3 reviewers per paper. Papers will be selected based on what they teach the community about the substrate beneath the policy, not on state-of-the-art task performance. A best paper award, sponsored by <a href="https://www.robotis.us/">ROBOTIS</a>, will recognize especially strong submissions with a <span class="award-amount">$1000 credit</span>.
     </p>
     <p>
-      <strong>Format.</strong> All accepted papers receive a poster slot. A small subset of authors will be invited to join the panel discussion as anchor voices alongside the invited speakers.
+      <strong>Format.</strong> Accepted papers will receive poster slots. Selected authors will receive lightning previews and may be invited to participate in the panel.
     </p>
     <p>
       <strong>Exclusions.</strong> Per CoRL 2026 policy, papers already accepted to the main CoRL 2026 conference are not eligible. Concurrent submissions to other venues are permitted if disclosed.
     </p>
+    <div class="sponsor-award" aria-label="Workshop sponsor">
+      <div class="sponsor-copy">
+        <p class="sponsor-label">Workshop Sponsor</p>
+        <p><a href="https://www.robotis.us/">ROBOTIS</a> is sponsoring the Best Paper Award with a <span class="award-amount">$1000 credit</span>.</p>
+        <p class="sponsor-products">The credit can be used toward <a href="https://www.robotis.us/">ROBOTIS</a> hardware such as DYNAMIXEL actuators, TurtleBot3 and OpenMANIPULATOR kits, controllers, and related robotics accessories.</p>
+      </div>
+      <a class="sponsor-logo-link" href="https://www.robotis.us/" aria-label="ROBOTIS website">
+        <img src="images/logo_robotis.png" alt="ROBOTIS logo">
+      </a>
+    </div>
     <p class="note">Submission deadline and OpenReview link will be posted here closer to the conference.</p>
   </section>
 
   <section id="artifact">
     <h2>Workshop Artifact</h2>
     <p>
-      We commit to producing a <strong>Design Choice Reporting Checklist v0.1</strong> as the workshop artifact, synthesized by the organizers from the invited talks, contributed papers, and panel discussion. The checklist will be structured per design axis (hardware and embodiment, motors and actuation, kinematics, controller gains and control rates, action spaces, observations, demos, sim, reward, reset) with the goal of being adoptable by reviewers and authors at CoRL 2027. We will circulate a draft to invited speakers and contributed-paper authors for comment before public release.
+      The organizers commit to producing a <strong>Design Choice Reporting Checklist v0.1</strong> after the workshop. The checklist will synthesize lessons from invited talks, contributed papers, posters, the panel, and audience discussion. It will cover hardware and embodiment, motors and actuation, kinematics, controller gains and rates, action spaces, observations, demonstrations, simulation, reward design, and reset distributions.
     </p>
     <p>
-      We will additionally release a short whitepaper summarizing open challenges, candidate methodologies, and an agenda for community follow-up.
+      The goal is to make the checklist specific enough for prospective authors and reviewers to use. After the workshop, we will circulate a draft to speakers and contributed-paper authors, incorporate feedback, and publicly release the checklist with a short whitepaper on open challenges, candidate methodologies, and community follow-up.
     </p>
   </section>
 
