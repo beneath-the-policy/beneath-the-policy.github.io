@@ -40,19 +40,26 @@
     </p>
   </header>
 
+  <div class="award-banner" aria-label="ROBOTIS sponsored award">
+    <p><a href="https://www.robotis.us/">ROBOTIS</a> is sponsoring <span class="award-amount">$1000 worth of credit</span> for the workshop's Best Paper Awards.</p>
+    <a class="award-banner-logo" href="https://www.robotis.us/" aria-label="ROBOTIS website">
+      <img src="images/logo_robotis.png" alt="ROBOTIS logo">
+    </a>
+  </div>
+
   <section id="overview">
     <h2>Overview</h2>
     <p>
       Robot learning has recently made striking progress in challenging domains such as dexterous manipulation, legged locomotion, and whole-body control. These advances are often credited to better policies, achieved through improved network architectures, novel learning algorithms, and, perhaps most importantly, increased data scale.
     </p>
     <p>
-      However, robot policies do not exist in a vacuum, and neither does the data used for training. Instead, they sit on top of multiple layers of design choices constituting a complex robot system that spans from data collection to deployment. Our workshop will focus explicitly on these design decisions: everything that sits <em>beneath</em> the policy. The process of training a robot policy and its outcome hinges on the kinematics and dynamics of the body being controlled, the type of actuators and low-level controllers, the action and observation spaces exposed to the policy, the sensing and data collection pipeline, the choice of a simulator, the evaluation protocol, and much more.
+      However, robot policies do not exist in a vacuum, and neither does the data used for training. Instead, they sit on top of multiple layers of design choices constituting a complex robot system that spans from data collection to deployment. Our workshop will focus explicitly on these design decisions: <span class="intro-highlight">everything that sits <em>beneath</em> the policy</span>. The process of training a robot policy and its outcome hinges on the kinematics and dynamics of the body being controlled, the type of actuators and low-level controllers, the action and observation spaces exposed to the policy, the sensing and data collection pipeline, the choice of a simulator, the evaluation protocol, and much more.
     </p>
     <p>
-      Although such design choices are essential to create every robot-learning result, they are rarely treated as an object of study in their own right. Instead, such components are often described as mere implementation details or left implicit in hardware, software, and lab-specific defaults. Recent studies reveal that these choices can heavily determine which behaviors are reachable, which behaviors are easy to learn, and which algorithms appear to work best. A method that succeeds with one set of design decisions may fail with another, and an apparent algorithmic improvement may partly reflect the substrate on which the method was trained, evaluated, and deployed.
+      Although such design choices are essential to create every robot-learning result, they are <span class="intro-highlight">rarely treated as an object of study in their own right</span>. Instead, such components are often described as mere implementation details or left implicit in hardware, software, and lab-specific defaults. Recent studies reveal that these choices can heavily determine which behaviors are reachable, which behaviors are easy to learn, and which algorithms appear to work best. A method that succeeds with one set of design decisions may fail with another, and an apparent algorithmic improvement may partly reflect the substrate on which the method was trained, evaluated, and deployed.
     </p>
     <p>
-      This workshop makes these robotics design decisions a central object of study. It asks which non-policy choices are impactful, which can be measured, which remain hidden in vendor defaults, and how they interact with each other. We will bring together robot-learning researchers, platform builders, control and simulation researchers, dataset and benchmark builders, industry practitioners, and students centered around the goal of making these hidden design choices explicit, measurable, and easier to report.
+      This workshop makes these robotics design decisions a central object of study. It asks which non-policy choices are impactful, which can be measured, which remain hidden in vendor defaults, and how they interact with each other. We will bring together robot-learning researchers, platform builders, control and simulation researchers, dataset and benchmark builders, industry practitioners, and students centered around the goal of <span class="intro-highlight">making these hidden design choices explicit, measurable, and easier to report</span>.
     </p>
   </section>
 
@@ -78,10 +85,10 @@
     <h2>Why Now</h2>
     <ol>
       <li>
-        <strong>Scaling the best data.</strong> The community is increasingly focused on scaling robot learning along the data axis. However, we believe that better understanding the substrate beneath the data and policy will substantially enhance the effectiveness of data collection efforts. The key question is not only how much data to collect, but <em>what</em> should be scaled. However, the community lacks shared scientific tools and machinery for studying this layer. Other empirical sciences use factorial designs, controlled ablations, scaling analyses, and carefully chosen model organisms to isolate important variables. Robot learning has no comparable norm for studying the interface among robot, data, controller, simulator, and optimizer.
+        <strong>Scaling the best data.</strong> The community is increasingly focused on scaling robot learning along the data axis. However, we believe that better understanding the substrate beneath the data and policy will substantially enhance the effectiveness of data collection efforts. The key question is not only how much data to collect, but <span class="intro-highlight"><em>what</em> should be scaled</span>. However, the community lacks <span class="intro-highlight">shared scientific tools and machinery</span> for studying this layer. Other empirical sciences use factorial designs, controlled ablations, scaling analyses, and carefully chosen model organisms to isolate important variables. Robot learning has no comparable norm for studying the interface among robot, data, controller, simulator, and optimizer.
       </li>
       <li>
-        <strong>Scientific rigor and reproducibility.</strong> The community is also increasingly suffering from reproducibility failures, which frequently come down to details that are rarely foregrounded in robotics publications: hardware settings, simulator versions, controller gains, control rates, data collection interfaces, reset distributions, and evaluation protocols. Clear reporting of these design choices would make it easier to interpret results, diagnose failed replications, and distinguish algorithmic improvements from substrate-specific effects. But reporting alone is not enough. Because these choices can change the strength, scope, or even direction of an empirical claim, methodological contributions should also examine how sensitive their conclusions are to key substrate choices. The field needs better language, methods, and reporting norms for studying how robot-learning results depend on the interface beneath the policy. This workshop will be a first step toward building that machinery and culture.
+        <strong>Scientific rigor and reproducibility.</strong> The community is also increasingly suffering from reproducibility failures, which frequently come down to details that are rarely foregrounded in robotics publications: hardware settings, simulator versions, controller gains, control rates, data collection interfaces, reset distributions, and evaluation protocols. Clear reporting of these design choices would make it easier to interpret results, diagnose failed replications, and <span class="intro-highlight">distinguish algorithmic improvements from substrate-specific effects</span>. But reporting alone is not enough. Because these choices can change the strength, scope, or even direction of an empirical claim, methodological contributions should also examine how sensitive their conclusions are to key substrate choices. The field needs better language, methods, and reporting norms for studying how robot-learning results depend on the interface beneath the policy. This workshop will be a first step toward building that machinery and culture.
       </li>
     </ol>
   </section>
@@ -125,22 +132,13 @@
           <p class="speaker-affil">Incoming Assistant Professor of CS, UMD</p>
         </div>
       </article>
-      <article class="speaker">
-        <a class="speaker-photo" href="https://goldberg.berkeley.edu/" aria-label="Ken Goldberg website">
-          <img src="images/speakers/ken-goldberg.jpg" alt="Ken Goldberg">
-        </a>
-        <div class="speaker-details">
-          <h3><a href="https://goldberg.berkeley.edu/">Ken Goldberg</a></h3>
-          <p class="speaker-affil">William S. Floyd Jr. Distinguished Chair of Engineering, UC Berkeley</p>
-        </div>
-      </article>
     </div>
   </section>
 
   <section id="schedule">
     <h2>Schedule</h2>
     <p>
-      The half-day workshop is built around four confirmed invited talks, contributed lightning previews, a poster session, a moderated panel, and a closing synthesis. The tentative fifth invited participant will be incorporated into the final program if confirmed. Speakers will be asked to attend the full session so they can join the panel and engage with contributed papers. Exact placement will depend on whether CoRL assigns the workshop to the morning or afternoon block.
+      The half-day workshop is built around four confirmed invited talks, contributed lightning previews, a poster session, a moderated panel, and a closing synthesis. Speakers will be asked to attend the full session so they can join the panel and engage with contributed papers. Exact placement will depend on whether CoRL assigns the workshop to the morning or afternoon block.
     </p>
     <div class="schedule-switch" aria-label="Schedule version">
       <button type="button" class="schedule-tab active" data-schedule-target="morning" aria-pressed="true" aria-controls="schedule-morning">Morning</button>
@@ -243,7 +241,7 @@
       <li>Tools, benchmarks, or datasets that expose hidden choices.</li>
     </ul>
     <p>
-      <strong>Review.</strong> Reviews will be double blind through OpenReview, with 2&ndash;3 reviewers per paper. Papers will be selected based on what they teach the community about the substrate beneath the policy, not on state-of-the-art task performance. A best paper award, sponsored by <a href="https://www.robotis.us/">ROBOTIS</a>, will recognize especially strong submissions with a <span class="award-amount">$1000 credit</span>.
+      <strong>Review.</strong> Reviews will be double blind through OpenReview, with 2&ndash;3 reviewers per paper. Papers will be selected based on what they teach the community about the substrate beneath the policy, not on state-of-the-art task performance. Best paper awards, sponsored by <a href="https://www.robotis.us/">ROBOTIS</a>, will recognize especially strong submissions with <span class="award-amount">$1000 worth of credit</span>.
     </p>
     <p>
       <strong>Format.</strong> Accepted papers will receive poster slots. Selected authors will receive lightning previews and may be invited to participate in the panel.
@@ -252,14 +250,15 @@
       <strong>Exclusions.</strong> Per CoRL 2026 policy, papers already accepted to the main CoRL 2026 conference are not eligible. Concurrent submissions to other venues are permitted if disclosed.
     </p>
     <div class="sponsor-award" aria-label="Workshop sponsor">
-      <div class="sponsor-copy">
-        <p class="sponsor-label">Workshop Sponsor</p>
-        <p><a href="https://www.robotis.us/">ROBOTIS</a> is sponsoring the Best Paper Award with a <span class="award-amount">$1000 credit</span>.</p>
-        <p class="sponsor-products">The credit can be used toward <a href="https://www.robotis.us/">ROBOTIS</a> hardware such as DYNAMIXEL actuators, TurtleBot3 and OpenMANIPULATOR kits, controllers, and related robotics accessories.</p>
+      <p class="sponsor-label">Workshop Sponsor</p>
+      <div class="sponsor-award-row">
+        <p class="sponsor-prize"><a href="https://www.robotis.us/">ROBOTIS</a> is sponsoring <span class="award-amount">$1000 worth of credit</span> for the workshop's Best Paper Awards.</p>
+        <a class="sponsor-logo-link" href="https://www.robotis.us/" aria-label="ROBOTIS website">
+          <img src="images/logo_robotis.png" alt="ROBOTIS logo">
+        </a>
       </div>
-      <a class="sponsor-logo-link" href="https://www.robotis.us/" aria-label="ROBOTIS website">
-        <img src="images/logo_robotis.png" alt="ROBOTIS logo">
-      </a>
+      <p class="sponsor-products"><a href="https://www.robotis.us/">ROBOTIS</a> (Robot is...) is a leading global robotics solutions provider specializing in high-precision, intelligent actuators designed for Physical AI and advanced robotic systems.  Research institutions, universities, and innovative startups — including numerous Physical AI companies worldwide — rely on <a href="https://www.robotis.us/">ROBOTIS’s</a> comprehensive DYNAMIXEL series. These all-in-one smart actuators integrate a motor, controller, driver, and networking capabilities into compact, high-performance modules. They empower the development of diverse applications, including teleoperation systems, semi-humanoids, full humanoids, delivery robots, dexterous manipulators, robot hand, and intelligent automation platforms.</p>
+      <p class="sponsor-products">The credit can be used toward <a href="https://www.robotis.us/">ROBOTIS</a> hardware such as DYNAMIXEL actuators, TurtleBot3 and OpenMANIPULATOR kits, controllers, and related robotics accessories.</p>
     </div>
     <p class="note">Submission deadline and OpenReview link will be posted here closer to the conference.</p>
   </section>

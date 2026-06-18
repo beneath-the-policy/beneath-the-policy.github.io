@@ -40,6 +40,50 @@ header {
   border-bottom: 1px solid var(--rule);
 }
 
+.award-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: -3rem 0 2rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.award-banner p {
+  margin: 0;
+}
+
+.award-banner .award-amount {
+  padding: 0;
+  background: transparent;
+}
+
+.award-banner-logo {
+  display: block;
+  width: min(150px, 30%);
+  flex-shrink: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.award-banner-logo:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+.award-banner-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .hero-visual {
   position: relative;
   margin: 0 0 0.8rem;
@@ -269,6 +313,19 @@ strong {
   font-weight: 700;
 }
 
+.intro-highlight {
+  padding: 0 0.04em;
+  background: linear-gradient(
+    to top,
+    rgba(138, 51, 36, 0.12) 38%,
+    transparent 38%
+  );
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: var(--text);
+  font-weight: 700;
+}
+
 .schedule-switch {
   display: inline-flex;
   gap: 0.15rem;
@@ -490,19 +547,24 @@ table.schedule tr:last-child td {
 }
 
 .sponsor-award {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
   margin: 1.3rem 0 1rem;
   padding: 1rem 0;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
 }
 
+.sponsor-award-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0 0 0.85rem;
+}
+
 .sponsor-logo-link {
   display: block;
-  width: min(210px, 34%);
-  flex-shrink: 0;
+  width: 100%;
+  justify-self: end;
   border-bottom: 0;
   padding-bottom: 0;
 }
@@ -519,13 +581,12 @@ table.schedule tr:last-child td {
   object-fit: contain;
 }
 
-.sponsor-copy {
-  min-width: 0;
-  flex: 1;
+.sponsor-award p {
+  margin: 0;
 }
 
-.sponsor-copy p {
-  margin: 0;
+.sponsor-prize {
+  font-size: 1rem;
 }
 
 .award-amount {
@@ -606,12 +667,21 @@ footer p {
   .topbar-logo img {
     height: 28px;
   }
-  .sponsor-award {
+  .award-banner {
     align-items: flex-start;
-    flex-direction: column;
+  }
+  .award-banner-logo {
+    width: min(118px, 38%);
+  }
+  .sponsor-award {
+    padding: 0.9rem 0;
+  }
+  .sponsor-award-row {
+    grid-template-columns: 1fr;
     gap: 0.75rem;
   }
   .sponsor-logo-link {
+    justify-self: start;
     width: min(220px, 72%);
   }
 }
