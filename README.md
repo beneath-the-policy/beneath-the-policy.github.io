@@ -3,7 +3,7 @@
 ### Toward a full-stack science of learnable robot systems
 
 **Type:** Half-day workshop
-**Venue:** CoRL 2026, JW Marriott Austin, November 9, 2026
+**Venue:** CoRL 2026, JW Marriott Austin, November 12, 2026
 **Tentative website:** beneath-the-policy.github.io
 
 ---
