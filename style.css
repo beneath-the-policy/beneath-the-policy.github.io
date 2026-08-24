@@ -40,103 +40,48 @@ header {
   border-bottom: 1px solid var(--rule);
 }
 
-.top-highlights,
-.submission-card {
-  border: 1px solid #deded9;
-  border-left: 3px solid var(--accent);
-  border-radius: 5px;
-  background: #fcfbfa;
-}
-
-.top-highlights {
-  margin: -1.8rem 0 2.5rem;
-  overflow: hidden;
-}
-
-.top-highlight-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 0.9rem;
+.announcement-strip {
+  margin: -3rem 0 2rem;
   color: var(--muted);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
+  font-weight: 500;
   line-height: 1.4;
 }
 
-.top-highlight-row + .top-highlight-row {
-  border-top: 1px solid var(--rule);
+.announcement-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule);
 }
 
-.highlight-copy,
-.highlight-copy p {
+.announcement-row p {
   margin: 0;
 }
 
-.highlight-label {
-  margin-bottom: 0.14rem !important;
+.announcement-title {
+  color: var(--text);
+}
+
+.announcement-emphasis {
+  display: inline-block;
+  padding: 0.02rem 0.28rem 0.07rem;
+  background: rgba(138, 51, 36, 0.1);
   color: var(--accent);
-  font-size: 0.68rem;
-  font-weight: 750;
-  letter-spacing: 0.065em;
-  text-transform: uppercase;
-}
-
-.highlight-text {
-  color: var(--muted);
-}
-
-.compact-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.15rem;
-  padding: 0.38rem 0.66rem;
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.78rem;
   font-weight: 700;
-  line-height: 1.2;
-  text-decoration: none;
   white-space: nowrap;
 }
 
-.compact-action:hover {
-  text-decoration: none;
-}
-
-.compact-action:focus-visible {
-  outline: 3px solid rgba(138, 51, 36, 0.2);
-  outline-offset: 2px;
-}
-
-.compact-action-primary {
-  background: var(--accent);
-  color: #fff;
-}
-
-.compact-action-primary:hover {
-  background: #72291d;
-}
-
-.compact-action-secondary {
-  background: transparent;
-  color: var(--accent);
-}
-
-.compact-action-secondary:hover {
-  background: rgba(138, 51, 36, 0.055);
-}
-
-.compact-action span {
-  margin-left: 0.28em;
+.announcement-link {
+  font-weight: 700;
 }
 
 .award-banner-logo {
   display: block;
-  width: 132px;
+  width: min(150px, 30%);
   flex-shrink: 0;
   border-bottom: 0;
   padding-bottom: 0;
@@ -383,26 +328,43 @@ strong {
   font-weight: 700;
 }
 
-.submission-card {
+.submission-details {
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.submission-details-label {
+  margin: 0 0 0.18rem;
+  color: var(--accent);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.submission-details-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1rem 1.4rem;
-  margin: 0 0 1.5rem;
-  padding: 0.9rem 1rem;
+  align-items: baseline;
+  gap: 0.4rem 1.25rem;
 }
 
-.submission-card-title {
+.submission-details-row p {
   margin: 0;
-  line-height: 1.45;
 }
 
-.submission-card-actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.5rem;
+.submission-detail-links {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.detail-separator {
+  margin: 0 0.45rem;
+  color: #b8b8b3;
 }
 
 .important-dates-heading {
@@ -428,10 +390,6 @@ table.submission-timeline .deadline-row td.time {
 table.submission-timeline .deadline-row td {
   background: rgba(138, 51, 36, 0.055);
   border-bottom-color: rgba(138, 51, 36, 0.16);
-}
-
-table.submission-timeline .deadline-row td:first-child {
-  box-shadow: inset 3px 0 0 rgba(138, 51, 36, 0.55);
 }
 
 .intro-highlight {
@@ -772,31 +730,18 @@ footer p {
   .subtitle {
     font-size: 1.2rem;
   }
-  .top-highlights {
-    margin-top: -1.5rem;
-  }
-  .top-highlight-row {
-    gap: 0.75rem;
-    padding: 0.72rem 0.75rem;
-  }
-  .award-row {
-    grid-template-columns: minmax(0, 1fr) 92px;
+  .announcement-row {
+    align-items: flex-start;
   }
   .award-banner-logo {
-    width: 92px;
+    width: min(118px, 38%);
   }
-  .compact-action {
-    min-height: 2rem;
-    padding: 0.34rem 0.55rem;
-    font-size: 0.75rem;
-  }
-  .submission-card {
+  .submission-details-row {
     grid-template-columns: 1fr;
-    gap: 0.7rem;
-    padding: 0.8rem;
+    gap: 0.38rem;
   }
-  .submission-card-actions {
-    justify-content: flex-start;
+  .submission-detail-links {
+    white-space: normal;
   }
   table.submission-timeline td.time {
     width: 8rem;
