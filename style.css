@@ -79,6 +79,37 @@ header {
   font-weight: 700;
 }
 
+.submission-banner {
+  flex-wrap: wrap;
+}
+
+.countdown-block {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.42rem;
+  margin-left: auto !important;
+  white-space: nowrap;
+}
+
+.countdown-label {
+  color: var(--muted);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.countdown-value {
+  color: var(--accent);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+}
+
 .award-banner-logo {
   display: block;
   width: min(150px, 30%);
@@ -356,15 +387,48 @@ strong {
   margin: 0;
 }
 
-.submission-detail-links {
+.submission-details-copy {
+  min-width: 0;
+}
+
+.submission-countdown {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.45rem;
+  margin-top: 0.38rem !important;
+}
+
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.35rem;
+  padding: 0.45rem 0.76rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: var(--accent);
+  color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-.detail-separator {
-  margin: 0 0.45rem;
-  color: #b8b8b3;
+.submit-button:hover {
+  background: #72291d;
+  text-decoration: none;
+}
+
+.submit-button:focus-visible {
+  outline: 3px solid rgba(138, 51, 36, 0.2);
+  outline-offset: 2px;
+}
+
+.submit-button span {
+  margin-left: 0.28em;
 }
 
 .important-dates-heading {
@@ -733,6 +797,10 @@ footer p {
   .announcement-row {
     align-items: flex-start;
   }
+  .countdown-block {
+    width: 100%;
+    margin-left: 0 !important;
+  }
   .award-banner-logo {
     width: min(118px, 38%);
   }
@@ -740,7 +808,11 @@ footer p {
     grid-template-columns: 1fr;
     gap: 0.38rem;
   }
-  .submission-detail-links {
+  .submit-button {
+    width: max-content;
+  }
+  .submission-details .announcement-emphasis {
+    max-width: 100%;
     white-space: normal;
   }
   table.submission-timeline td.time {

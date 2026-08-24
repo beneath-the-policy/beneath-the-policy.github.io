@@ -46,6 +46,7 @@
   <div class="announcement-strip" role="region" aria-label="Workshop announcements">
     <div class="announcement-row submission-banner">
       <p><strong class="announcement-title">Submissions are open.</strong> Four-page papers are due <span class="announcement-emphasis"><time datetime="2026-10-09T23:59:00-05:00">October 9 at 11:59 p.m. CT</time></span>. <a class="announcement-link" href="https://openreview.net/invitation?id=robot-learning.org%2FCoRL%2F2026%2FWorkshop%2FWEBP%2F-%2FSubmission">Submit on OpenReview <span aria-hidden="true">&rarr;</span></a></p>
+      <p class="countdown-block"><span class="countdown-label">Time left</span><span class="countdown-value" data-submission-countdown role="timer" aria-label="Time remaining until the submission deadline">Calculating&hellip;</span></p>
     </div>
     <div class="announcement-row award-banner">
       <p><a href="https://www.robotis.us/">ROBOTIS</a> is sponsoring <span class="award-amount">$1000 worth of credit</span> for the workshop's Best Paper Awards.</p>
@@ -241,12 +242,11 @@
     <div class="submission-details" role="note" aria-label="Paper submission details">
       <p class="submission-details-label">Submissions Open</p>
       <div class="submission-details-row">
-        <p>Paper deadline: <span class="announcement-emphasis"><time datetime="2026-10-09T23:59:00-05:00">October 9, 2026, at 11:59 p.m. Central Time</time></span></p>
-        <p class="submission-detail-links">
-          <a class="announcement-link" href="https://openreview.net/invitation?id=robot-learning.org%2FCoRL%2F2026%2FWorkshop%2FWEBP%2F-%2FSubmission">Submit on OpenReview <span aria-hidden="true">&rarr;</span></a>
-          <span class="detail-separator" aria-hidden="true">·</span>
-          <a href="https://openreview.net/group?id=robot-learning.org%2FCoRL%2F2026%2FWorkshop%2FWEBP">Venue details</a>
-        </p>
+        <div class="submission-details-copy">
+          <p>Paper deadline: <span class="announcement-emphasis"><time datetime="2026-10-09T23:59:00-05:00">October 9, 2026, at 11:59 p.m. Central Time</time></span></p>
+          <p class="submission-countdown"><span class="countdown-label">Time remaining</span><span class="countdown-value" data-submission-countdown role="timer" aria-label="Time remaining until the submission deadline">Calculating&hellip;</span></p>
+        </div>
+        <a class="submit-button" href="https://openreview.net/invitation?id=robot-learning.org%2FCoRL%2F2026%2FWorkshop%2FWEBP%2F-%2FSubmission">Submit on OpenReview <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
     <p>
@@ -384,6 +384,41 @@
 </footer>
 
 <script>
+  (function () {
+    const deadline = new Date('2026-10-09T23:59:00-05:00').getTime();
+    const countdowns = Array.from(document.querySelectorAll('[data-submission-countdown]'));
+    let countdownInterval;
+
+    const updateCountdowns = () => {
+      const remaining = deadline - Date.now();
+
+      if (remaining <= 0) {
+        countdowns.forEach(countdown => {
+          countdown.textContent = 'Submissions closed';
+        });
+        clearInterval(countdownInterval);
+        return;
+      }
+
+      const totalSeconds = Math.floor(remaining / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      const pad = value => String(value).padStart(2, '0');
+      const display = `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+
+      countdowns.forEach(countdown => {
+        countdown.textContent = display;
+      });
+    };
+
+    updateCountdowns();
+    if (deadline > Date.now()) {
+      countdownInterval = setInterval(updateCountdowns, 1000);
+    }
+  })();
+
   (function () {
     const tocLinks = Array.from(document.querySelectorAll('.toc a'));
     const sections = tocLinks
