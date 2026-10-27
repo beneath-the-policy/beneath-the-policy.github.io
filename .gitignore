@@ -1,1 +1,18 @@
 prep_docs/
+
+# OpenReview admin scripts and confidential submission data (never publish)
+openreview_tools/
+WEBP_PDFs/
+# Stray OpenReview exports: submissions, reviews, decisions, author lists
+*openreview*.csv
+*openreview*.json
+*decision*.csv
+*review*.csv
+*review*.json
+*submission*.csv
+*submission*.json
+*author_positions*
+__pycache__/
+
+# Local preview server config
+.claude/
