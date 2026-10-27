@@ -503,6 +503,35 @@ table.schedule tr:last-child td {
   border-bottom: none;
 }
 
+.paper-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.paper-list li {
+  margin: 0;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.paper-title {
+  display: block;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.paper-authors {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
 .speaker-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
