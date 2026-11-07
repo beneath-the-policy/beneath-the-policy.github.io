@@ -23,12 +23,29 @@
 </head>
 <body>
 
+<svg class="icon-sprite" aria-hidden="true" focusable="false">
+  <symbol id="icon-zoom" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M7 1.5h10A5.5 5.5 0 0 1 22.5 7v10a5.5 5.5 0 0 1-5.5 5.5H7A5.5 5.5 0 0 1 1.5 17V7A5.5 5.5 0 0 1 7 1.5zM7.3 8h5.4a1.8 1.8 0 0 1 1.8 1.8v4.4a1.8 1.8 0 0 1-1.8 1.8H7.3a1.8 1.8 0 0 1-1.8-1.8V9.8A1.8 1.8 0 0 1 7.3 8zm8.2 2.6 3-2v6.8l-3-2z"/>
+  </symbol>
+  <symbol id="icon-youtube" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M5.2 4.5h13.6A4.2 4.2 0 0 1 23 8.7v6.6a4.2 4.2 0 0 1-4.2 4.2H5.2A4.2 4.2 0 0 1 1 15.3V8.7a4.2 4.2 0 0 1 4.2-4.2zM10 8.6v6.8l5.8-3.4z"/>
+  </symbol>
+</svg>
+
 <div class="topbar">
   <div class="topbar-inner">
     <a class="topbar-brand" href="#top" aria-label="Back to top — Workshop on Everything Beneath the Policy, CoRL 2026">
       <span class="topbar-title">Workshop on Everything Beneath the Policy</span>
       <span class="topbar-subtitle">How controllers, hardware, data infrastructure shape robot learning</span>
     </a>
+    <nav class="topbar-live" aria-label="Attend online">
+      <a class="topbar-live-link topbar-live-zoom" href="https://mit.zoom.us/j/94800975318" aria-label="Join on Zoom" title="Join on Zoom">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-zoom"/></svg><span>Zoom</span>
+      </a>
+      <a class="topbar-live-link topbar-live-youtube" href="https://www.youtube.com/live/htuUrt5wrpw" aria-label="Watch on YouTube" title="Watch on YouTube">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-youtube"/></svg><span>YouTube</span>
+      </a>
+    </nav>
     <a class="topbar-logo" href="https://www.corl.org/" aria-label="CoRL 2026">
       <img src="images/organizers/corl-logo.png" alt="CoRL 2026 logo">
     </a>
@@ -50,6 +67,13 @@
   </header>
 
   <div class="announcement-strip" role="region" aria-label="Workshop announcements">
+    <div class="announcement-row live-banner">
+      <p><strong class="announcement-title">Can&rsquo;t make it to Austin?</strong> The talks and panel stream live.</p>
+      <div class="live-links" role="group" aria-label="Attend online">
+        <a class="live-link" href="https://mit.zoom.us/j/94800975318"><svg class="icon icon-zoom" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-zoom"/></svg>Join on Zoom</a>
+        <a class="live-link" href="https://www.youtube.com/live/htuUrt5wrpw"><svg class="icon icon-youtube" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icon-youtube"/></svg>Watch on YouTube</a>
+      </div>
+    </div>
     <div class="announcement-row submission-banner">
       <p><strong class="announcement-title">Accepted papers announced.</strong> Twenty papers will be presented as posters on <span class="announcement-emphasis"><time datetime="2026-11-12">November 12</time></span> in Salon E at the Hilton Austin. <a class="announcement-link" href="#papers">See the accepted papers <span aria-hidden="true">&rarr;</span></a></p>
     </div>
@@ -197,89 +221,92 @@
   <section id="papers">
     <h2>Accepted Papers</h2>
     <p>
-      Twenty contributed papers, selected from 92 submissions, will be presented as posters during the 10:35&ndash;11:05 a.m. session in Salon E. Selected authors will also give lightning previews before the poster session.
+      Twenty contributed papers, selected from 92 submissions, will be presented as posters during the 10:35&ndash;11:05 a.m. session in Salon E. The three oral spotlights, listed first, also give 3-minute talks during the lightning previews at 10:25 a.m. Each title links to the paper on OpenReview.
     </p>
     <ul class="paper-list">
       <!-- accepted-papers:start -->
-      <li>
-        <span class="paper-title">An Empirical Analysis of Controller Selection for Safe Execution of UMI-Style Policies</span>
+      <li class="is-spotlight">
+        <span class="paper-badge">Oral spotlight</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=1WbNYYTPTM">An Empirical Analysis of Controller Selection for Safe Execution of UMI-Style Policies</a></span>
         <span class="paper-authors">Vidullan Surendran, Neehar Peri</span>
       </li>
+      <li class="is-spotlight">
+        <span class="paper-badge">Oral spotlight</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=dTUSsgalaY">Blind Dexterity: Whole-Body Humanoid Manipulation via Pure Proprioception</a></span>
+        <span class="paper-authors">Aditya Bhatt, Oleg Kaidanov, Puze Liu, Jan Peters</span>
+      </li>
+      <li class="is-spotlight">
+        <span class="paper-badge">Oral spotlight</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=GXtKJjdGui">Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data</a></span>
+        <span class="paper-authors">Songbo Hu, Qiayuan Liao, Yufeng Chi, Kevin Zakka, Sophia Shao, Pieter Abbeel, Koushil Sreenath</span>
+      </li>
       <li>
-        <span class="paper-title">Beyond Fixed Delays: Why the Time Scale of Inference Latency Matters for Robot Policies</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=1H7r3pWx5g">Beyond Fixed Delays: Why the Time Scale of Inference Latency Matters for Robot Policies</a></span>
         <span class="paper-authors">张佳祺, 季云峰</span>
       </li>
       <li>
-        <span class="paper-title">Blind Dexterity: Whole-Body Humanoid Manipulation via Pure Proprioception</span>
-        <span class="paper-authors">Aditya Bhatt, Oleg Kaidanov, Puze Liu, Jan Peters</span>
-      </li>
-      <li>
-        <span class="paper-title">Breaking Modality Entanglement in Vision-Language-Action Policies</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=ZufpMWf3yT">Breaking Modality Entanglement in Vision-Language-Action Policies</a></span>
         <span class="paper-authors">Yue Yang, Diego Romeres, Chiori Hori, Gedas Bertasius, Daniel Szafir, Siddarth Jain</span>
       </li>
       <li>
-        <span class="paper-title">Decomposing the Precision Gain of Force Sensing in Learned Peg Insertion</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=qgngbEkAq5">Decomposing the Precision Gain of Force Sensing in Learned Peg Insertion</a></span>
         <span class="paper-authors">Wangta Ma, Yiming Chen, Xu Jinwei, Yang zhou, Zhenwei Zhou, Jinhui Sun, Li Yang, Wei ZHOU</span>
       </li>
       <li>
-        <span class="paper-title">Detecting Silent Faults at the Environment–Trainer Boundary in Reinforcement Learning</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=VgOto5oF70">Detecting Silent Faults at the Environment–Trainer Boundary in Reinforcement Learning</a></span>
         <span class="paper-authors">Zuo Gou, Chenhao Lu</span>
       </li>
       <li>
-        <span class="paper-title">Escape Is Not Success: Diagnosing Spatial-OOD Failures of Robot Action Interfaces</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=nRU0GzU0Hc">Escape Is Not Success: Diagnosing Spatial-OOD Failures of Robot Action Interfaces</a></span>
         <span class="paper-authors">Juno Kim, Yesol Park, HyeJung Yoon, Byoung-Tak Zhang</span>
       </li>
       <li>
-        <span class="paper-title">From Teleoperation to Long-Horizon Dexterity: Evaluating Visuomotor Skills and Offline Proxies for Dexterous Manipulation</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=PYg9IBwK6M">From Teleoperation to Long-Horizon Dexterity: Evaluating Visuomotor Skills and Offline Proxies for Dexterous Manipulation</a></span>
         <span class="paper-authors">Ammar Abbas, Aayush Jain, PRASHANTH RAMANATHPUR VISWANATH, Nivesh Gadipudi, Giulia Vilone, Jim Gibbons</span>
       </li>
       <li>
-        <span class="paper-title">Generalist-Parkour: One Policy for Extreme Humanoid Parkour</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=wZHmhWKEeX">Generalist-Parkour: One Policy for Extreme Humanoid Parkour</a></span>
         <span class="paper-authors">Jiakang Chen, Jiaxuan Wang, Hongyu Zhao, Nian SHEN, Chuan Qin, Shaoting Zhu, Hang Zhao</span>
       </li>
       <li>
-        <span class="paper-title">OpenTac: Making Tactile Sensor Design Configurable for Robot Learning</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=cg2GSk4CNa">OpenTac: Making Tactile Sensor Design Configurable for Robot Learning</a></span>
         <span class="paper-authors">Ariel Slepyan, Geeta Chandra Raju Bethala, Jiafeng Gu, Anagha Rajendra Dangle, Hongyuan Fu, Md Faizal Karim, Gregory D. Hager, Homanga Bharadhwaj, Krishna Murthy Jatavallabhula, Nitish Thakor</span>
       </li>
       <li>
-        <span class="paper-title">Pushing Your Robot Policy toward Its Speed Limits via Coupled Gain–Duration Optimization</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=JcxzmPgz1p">Pushing Your Robot Policy toward Its Speed Limits via Coupled Gain–Duration Optimization</a></span>
         <span class="paper-authors">Hao Wu, Xu Luo, Zijin Hong, Ji Zhang, Jingkuan Song, Lianli Gao</span>
       </li>
       <li>
-        <span class="paper-title">Recomputing Success Rates and Comparing Policies on the RoboArena Leaderboard</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=pXhp1rpJI6">Recomputing Success Rates and Comparing Policies on the RoboArena Leaderboard</a></span>
         <span class="paper-authors">Jiaxuan Guo, Youran Sun, Xingyu Ren, Jiaqi Ye, Haizhao Yang</span>
       </li>
       <li>
-        <span class="paper-title">Residual Compliant Policy: Learning Compliant Policies from Few Demonstrations</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=vOR1YBuzKL">Residual Compliant Policy: Learning Compliant Policies from Few Demonstrations</a></span>
         <span class="paper-authors">Chunyu Jiang, Yichen Cai, Shuai Li, Wenbin Sun, Joao Carvalho, Kostas Daniilidis, Oleg Arenz, Cristiana de Farias, Jan Peters</span>
       </li>
       <li>
-        <span class="paper-title">SAFTER: Safety-Aware Filtering Through Explicit Recoverability for Robust Reinforcement Learning under Distribution Shift</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=nqzXIRk81e">SAFTER: Safety-Aware Filtering Through Explicit Recoverability for Robust Reinforcement Learning under Distribution Shift</a></span>
         <span class="paper-authors">Benedictus Christo Geroda Cinun, Bin Hu</span>
       </li>
       <li>
-        <span class="paper-title">SensorPerch: Sense Wherever and Whenever it Matters</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=2FOEqUnRbt">SensorPerch: Sense Wherever and Whenever it Matters</a></span>
         <span class="paper-authors">Zhanxin Wu, Ruofei Tong, Tapomayukh Bhattacharjee</span>
       </li>
       <li>
-        <span class="paper-title">SPACE: Enabling Learning from Cross-Robot Data Toward Generalist Policies</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=8yJK2fEFxJ">SPACE: Enabling Learning from Cross-Robot Data Toward Generalist Policies</a></span>
         <span class="paper-authors">Haeone Lee, Byeongguk Jeon, Suchae Jeong, Jian Kim, Kimin Lee</span>
       </li>
       <li>
-        <span class="paper-title">TouchScale: 500 Hours of Human Vision and Touch for Visual-Tactile Learning</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=7VPgMRvpux">TouchScale: 500 Hours of Human Vision and Touch for Visual-Tactile Learning</a></span>
         <span class="paper-authors">Dayou Li, Hao Wang, Qianqian Yang, Zihao Zhu, Haoquan Fang, Ziyao Zeng, Yan Han, Zihan Wang, Yan Wang, Baoru Huang, Dilin Wang, Kenji Shimada, Yiyue Luo, Manling Li, Teresa Lv, Mustafa Mukadam, Rakesh Ranjan, Ruohan Zhang, Qi He, Changliu Liu, Xu Chen, Marco Pavone, Bangya Liu, Jiachen Li, Masayoshi Tomizuka, Zhiwen Fan</span>
       </li>
       <li>
-        <span class="paper-title">WeaveRL: Weaving Reconstruction into Scene-Aware Fabrics for Perceptive Reinforcement Learning</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=48Xgkolxoc">WeaveRL: Weaving Reconstruction into Scene-Aware Fabrics for Perceptive Reinforcement Learning</a></span>
         <span class="paper-authors">Vikram Ramasamy, Remo Steiner, David Tingdahl, Sam Mady, Karl Van Wyk, Nathan D. Ratliff, David Recasens, Soha Pouya, Tuur Stuyck, Alexander Millane</span>
       </li>
       <li>
-        <span class="paper-title">Which Taxels, Not How Many: Tactile Sensor Placement for Dexterous Policies</span>
+        <span class="paper-title"><a href="https://openreview.net/forum?id=dtSNBmsZoR">Which Taxels, Not How Many: Tactile Sensor Placement for Dexterous Policies</a></span>
         <span class="paper-authors">Taeyun Kim, JinSoo Shin, Taehwa Kim, Tae Yoon Kim, Jinyoung Choi</span>
-      </li>
-      <li>
-        <span class="paper-title">Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data</span>
-        <span class="paper-authors">Songbo Hu, Qiayuan Liao, Yufeng Chi, Kevin Zakka, Sophia Shao, Pieter Abbeel, Koushil Sreenath</span>
       </li>
       <!-- accepted-papers:end -->
     </ul>
