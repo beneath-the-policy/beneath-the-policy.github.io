@@ -742,6 +742,14 @@ table.schedule tr:last-child td {
   line-height: 1.3;
 }
 
+.speaker-note {
+  margin: 0.3rem 0 0;
+  color: var(--accent);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.76rem;
+  line-height: 1.3;
+}
+
 .organizer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
